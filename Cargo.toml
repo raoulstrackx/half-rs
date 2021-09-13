@@ -17,9 +17,13 @@ exclude = [".git*", ".editorconfig"]
 default = ["std"]
 std = ["alloc"]
 use-intrinsics = []
-alloc = []
+serialize = ["serde"] # Deprecated. Use serde directly.
+rustc-dep-of-std = ["core", "alloc", "compiler_builtins/rustc-dep-of-std"]
 
 [dependencies]
+core = { version = "1.0.0", optional = true, package = "rustc-std-workspace-core" }
+alloc = { version = "1.0.0", optional = true, package = "rustc-std-workspace-alloc" }
+compiler_builtins = { version = "0.1.0", optional = true }
 bytemuck = { version = "1.4.1", default-features = false, features = [
     "derive",
 ], optional = true }
