@@ -18,9 +18,13 @@ maintenance = { status = "passively-maintained" }
 std = []
 use-intrinsics = []
 serialize = ["serde"] # Deprecated. Use serde directly.
+rustc-dep-of-std = ["core", "alloc", "compiler_builtins/rustc-dep-of-std"]
 
-[dependencies.serde]
-version = "1.0"
-optional = true
-default-features = false
-features = ["derive"]
+[dependencies]
+serde = { version = "1.0", optional = true, default-features = false, features = ["derive"] }
+core = { version = "1.0.0", optional = true, package = "rustc-std-workspace-core" }
+alloc = { version = "1.0.0", optional = true, package = "rustc-std-workspace-alloc" }
+compiler_builtins = { version = "0.1.0", optional = true }
+
+[patch.crates-io]
+libc = { git = "https://github.com/raoulstrackx/libc.git", branch = "raoul/fortanixvme_rebase_106" }
