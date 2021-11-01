@@ -48,4 +48,4 @@ rustc-args = ["--cfg", "docsrs"]
 features = ["std", "serde", "bytemuck", "num-traits", "zerocopy"]
 
 [patch.crates-io]
-libc = { git = "https://github.com/raoulstrackx/libc.git", branch = "raoul/version_0_2_106" }
+libc = { git = "https://github.com/raoulstrackx/libc.git", branch = "raoul/fortanixvme_rebase_106" }
